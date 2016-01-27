@@ -1,0 +1,141 @@
+package collections;
+
+import java.util.*;
+
+
+/**
+ * Created by newuser on 1/13/16.
+ */
+public class Sets {
+
+    public static void main(String[] args) {
+
+      // tree set display values in a sorted order
+      //LinkedHashSet displays stuff in the order you input them
+        //hash sets display values in a random order
+
+        HashSet sa = new HashSet();
+        sa.add("This is");
+        sa.add(2);
+        sa.add("cool!!!!!!");
+
+        System.out.println(sa);
+
+        //hash set are like lists but they do not duplicate values
+        LinkedHashSet<Integer> s1 = new LinkedHashSet<Integer>() ;
+        //add duplicate
+        s1.add(1);
+        s1.add(100);
+        s1.add(35);
+        s1.add(50);
+        s1.add(1);
+
+
+        System.out.println(s1);
+
+
+        LinkedHashSet s2 = new LinkedHashSet();
+        s2.add(2);
+        s2.add(100);
+        s2.add(35);
+        s2.add(null);
+        s2.add("hello");
+
+
+        //union allows you to add two sets together and remove duplicates
+        LinkedHashSet union = new LinkedHashSet();
+        union.addAll(s1);
+        union.addAll(s2);
+
+        System.out.println(union);
+
+        //intersection allows you to get unique values
+        LinkedHashSet intersection = new LinkedHashSet();
+        intersection.addAll(s1);
+        intersection.retainAll(s2);
+
+
+        // symetric diference
+        System.out.println(intersection);
+
+        /*-----------------------------------------------------------------
+        *
+        *       Nasty Paths
+        * ----------------------------------------------------------------*/
+        //retain all with null
+        try {
+            intersection.retainAll(null);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        TreeSet BofM = new TreeSet();
+        BofM.add("1 Nephi");
+        BofM.add("2 Nephi");
+        BofM.add("Jacob");
+        BofM.add("Enos");
+        BofM.remove("Enos");
+
+        //add lowercase letter
+        BofM.add("jacob");
+
+        BofM.add("\n");
+        //add null to value
+        try {
+            BofM.add(null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //add integer
+        try {
+            BofM.add(3);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+        //add new \n
+
+
+        System.out.println(BofM);
+
+        try{
+            BofM.remove(null);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println(BofM);
+
+        try{
+            System.out.println(BofM.contains(null));
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        LinkedHashSet bom = new LinkedHashSet();
+        bom.add("Alma");
+        bom.add("Mosiah");
+
+        BofM.addAll(bom);
+
+        System.out.println(BofM);
+
+        try {
+            BofM.addAll(null);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+}
