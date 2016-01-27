@@ -1,0 +1,153 @@
+package collections;
+
+import javax.sound.midi.SysexMessage;
+import java.util.ArrayList;
+
+/**
+ * Created by newuser on 1/12/16.
+ */
+public class List {
+
+
+    public static void main(String[] args) {
+
+        //to create an arrayList you do the following
+        ArrayList<String> l1st = new ArrayList<String>();
+        //to add to a list you use .add
+        l1st.add("hello");
+        l1st.add("world");
+        // set allows you to change the value inside list.
+        l1st.set(1,"you");
+
+        //.get allows you to retrive the value of a list.
+        System.out.println(l1st.get(0));
+
+        //get 5 ? get a negative index?
+        try{
+            System.out.println(l1st.get(5));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try{
+            System.out.println(l1st.get(-1));
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        //insert into list non existind index
+        try {
+            l1st.add(3, "help");
+            System.out.println(l1st);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try {
+            l1st.add(-1, "Im trying to add on index -1");
+            System.out.println(l1st);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try{
+            l1st.add(5, "Im trying to add on index 5");
+            System.out.println(l1st);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        l1st.add(2,"hi");
+        System.out.println(l1st);
+
+
+
+        // Arrays can contain multiple types of data.
+        ArrayList l2 = new ArrayList();
+        l2.add(2);
+        l2.add("hello");
+        l2.add(5);
+        l2.add(null);
+        l2.add(2);
+
+        System.out.println(l2);
+
+
+        ArrayList team1 = new ArrayList();
+        team1.add("Mitch");
+        team1.add("Gabe");
+
+        System.out.println(team1);
+
+        ArrayList team2 = new ArrayList();
+        team2.add("Armando");
+        team2.add("Carlos");
+
+        //.addAll allows you to merge 2 lists
+        ArrayList team = new ArrayList();
+        team.addAll(team1);
+        team.addAll(team2);
+
+
+
+        try {
+            team.addAll(null);
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(team);
+
+
+        ArrayList fcGalacticos = new ArrayList();
+
+        fcGalacticos.add("Tyler");
+        fcGalacticos.add("Jesse");
+        fcGalacticos.add("Jordan");
+        fcGalacticos.add("Eli");
+        fcGalacticos.add("Hayle");
+
+        fcGalacticos.addAll(team);
+
+        System.out.println(fcGalacticos);
+
+        // tels you if list is empty
+        System.out.println(fcGalacticos.isEmpty());
+
+       //removes multiple values
+        fcGalacticos.removeAll(team);
+        System.out.println(fcGalacticos);
+
+        // remove null
+        try {
+            fcGalacticos.removeAll(null);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        //removes value at index x
+        fcGalacticos.remove(1);
+        System.out.println(fcGalacticos);
+
+        //makes a copy of the list
+        fcGalacticos.clone();
+        System.out.println(fcGalacticos);
+
+        //clears a list
+        fcGalacticos.clear();
+        System.out.println(fcGalacticos);
+
+
+    }
+}
+
