@@ -1,0 +1,109 @@
+package collections;
+
+import java.util.*;
+import java.util.InputMismatchException;
+import java.util.concurrent.SynchronousQueue;
+
+public class Maps {
+
+    public static void main(String[] args) {
+        HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+
+        hmap.put(1, "hello");
+        hmap.put(2, "my");
+        hmap.put(3, "name");
+        hmap.put(4, "is");
+        hmap.put(5, "Armando");
+
+        System.out.println(hmap.keySet());
+        // mapname.keyset allows you to retrieve the keysets of a map.
+
+
+        System.out.println("---------------------");
+
+        // mapname.values allows you to retrive all the values from a map
+        System.out.println(hmap.values());
+
+        System.out.println("---------------------");
+
+        for (Map.Entry<Integer, String> e : hmap.entrySet()) {
+            int key = e.getKey();
+            String value = e.getValue();
+
+            System.out.println(key + " : " + value);
+
+        }
+
+        System.out.println("-------------------");
+
+        System.out.println(hmap.get(5));
+
+        System.out.println("---------------------");
+
+        System.out.println(hmap.containsValue("is"));
+
+        System.out.println("---------------------");
+
+        System.out.println(hmap);
+
+        // nasty paths
+
+        TreeMap elements = new TreeMap();
+        elements.put("Red", "Fire");
+        elements.put("Blue", "Water");
+        elements.put("Brown", "Earth");
+        elements.put("White", "Air");
+        //a value can be null
+        elements.put("Black", null);
+        //hashmap key value try null
+
+        elements.put("Green","");
+
+        // a key can not be null in a tree map
+        try {
+
+            elements.put(null, "ds");
+
+            System.out.println(elements);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //can not remove null
+        try {
+            elements.remove(null);
+            System.out.println(elements);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //can not get -1 key
+        try {
+            elements.get(-1);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        // can not get a key that does not exist.
+        try {
+            elements.get(10);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        LinkedHashMap mymap = new LinkedHashMap();
+        mymap.put(1,"red");
+        mymap.put("blue",3);
+        mymap.put(null,null);
+
+        System.out.println(mymap);
+        
+    }
+
+
+
+
+}
